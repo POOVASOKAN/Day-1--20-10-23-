@@ -1,1 +1,68 @@
 Write a blog about objects and its internal representation in Javascript
+>> Understanding Objects
+
+JavaScript is like the "soul" of modern web development, powering interactive and dynamic websites.JavaScript is an object-oriented language, and as such, 
+its core functionality revolves around objects. JavaScript objects, fundamental to modern web development, differ from primitive data-types like numbers or strings. 
+While primitives hold a single value, objects can house a mix of such values and reference types. 
+Essentially, variables linked to an object don't store the object directly but rather point to its memory location.
+
+>> What are they?
+
+Think of objects as "containers" that can store different kinds of information. Unlike basic data types like numbers or strings that hold a single value, objects can 
+store multiple pieces of data and even functions.In JavaScript,both the object name (which could be a normal variable) and property name are case sensitive. Unassigned 
+properties of an object are undefined (and not null).
+we can define a property by assigning it a value.Objects in JavaScript are like bags with pockets. Each pocket (which we call a "property") holds something specific. 
+Wecan quickly check what's in a pocket using:
+
+SYNTAX: "bagName.pocketName"
+
+Ex: An object as a student's file in a school:
+> The student has properties like name, age, address, and an ID.
+> The student file can have actions or methods like updating the address or changing the name.
+
+var studentInfo = new Object();
+studentInfo.firstName = 'Emily';
+studentInfo.lastName = 'Smith';
+studentInfo.enrollmentYear = 2022;
+
+console.log(studentInfo.firstName) will retrieve the "Emily"
+
+>>Properties:There are two main types of properties
+
+>> Data properties: These are the most common ones which contain data values.
+>> Accessor properties: They don't contain a data value but have getter and setter functions.
+
+>>Internal representation in Javascript
+The internal representation of objects in JavaScript is a foundational aspect of the language, and the ECMA-262 specification provides an in-depth look into this structure. 
+
+>Object Constructor:
+In JavaScript, the Object constructor is the main mechanism to create new objects. The constructor can be called with the new keyword to create an object, and it can 
+also be invoked as a function to convert a value to an object type.
+
+>Properties and Methods:
+The ECMA-262 specification outlines numerous properties and methods associated with the Object constructor. These include properties like Object.prototype and methods 
+such as Object.assign(), Object.keys(), and many more.
+
+>Property Descriptors and Attributes:
+Objects in JavaScript are defined using a series of internal properties. These properties are specification mechanisms, which means they're not accessible in regular code 
+but are fundamental for the JavaScript engine.These properties are typically denoted using double square brackets, e.g., [[Prototype]], [[Extensible]].
+Objects in JavaScript have associated property descriptors. A descriptor is a collection of attributes for a property. The primary attributes are [[Value]], [[Writable]], 
+[[Enumerable]], and [[Configurable]].
+
+>[[Prototype]]:
+This is an internal property that is either null or points to another object. It essentially forms the prototype chain, ensuring that if an object doesn't have a 
+particular property, JavaScript will look for it up the [[Prototype]] chain. This mechanism powers inheritance in JavaScript.
+
+>[[Extensible]]:
+
+The [[Extensible]] internal property is a boolean flag. If it's true, you can add new properties to the object. If false, you can't. This can be controlled in your code
+using methods like Object.preventExtensions().
+
+>Exotic Objects:
+
+The ECMA-262 specification defines some objects as "exotic objects." An exotic object is an object that doesn't uphold the default behavior for one or more essential 
+internal methods. An example is the Array, where the indexing mechanism and length property behavior are different from regular objects.
+
+
+>>Reference 
+1.https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object

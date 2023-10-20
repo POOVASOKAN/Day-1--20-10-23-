@@ -1,1 +1,37 @@
-Write a blog on Difference between HTTP1.1 vs HTTP2
+Write a blog on Difference between HTTP11 vs HTTP2
+HTTP stand for Hypertext Transfer Protocol and it serves as the communication channel between client & Server. By using HTTP user sends 
+the request to the server & the server sends the response to the user. 
+A)Multiplexing:
+HTTP/1.1: Browsers would often open multiple TCP connections to the same server to download resources in parallel, as only one request 
+can be active at a time per connection.
+HTTP/2: Allows multiple requests and responses to be multiplexed over a single TCP connection, reducing the overhead of setting up multiple connections.
+
+B) Stream Prioritization:
+HTTP/1.1: No built-in mechanism to prioritize requests.
+HTTP/2: Allows requests to be prioritized, which means that more important resources (like stylesheets) can be sent before less critical resources (like images).
+
+C) Binary Framing layer Protocol:
+HTTP/1.1: Text-based protocol, making it easier to read by humans but less efficient for machines.
+HTTP/2: HTTP/2 breaks down communication into smaller binary-encoded messages, which is more efficient for parsing and reduces the chance of errors.
+
+D) Server Push:
+HTTP/1.1: Doesn't support this feature.It uses requests resource Inlining for use getting multiple pages
+HTTP/2: Allows servers to push resources proactively to the client's cache, potentially speeding up the loading of web pages by sending necessary assets before the client 
+even knows it needs them.
+
+E)Header Compression:
+HTTP/1.1: Headers are sent as plain text, which can add a lot of overhead to requests, especially when cookies or other data are involved.
+HTTP/2: Uses HPACK compression for headers, reducing the amount of data that needs to be sent for each request and response.
+
+F)Data Frames:
+HTTP/1.1: Data is transmitted as a whole, without a specific framing structure.
+HTTP/2: Data is sent in smaller, discrete frames. This modular approach aids in multiplexing and stream prioritization.
+
+G)Connection Efficiency:
+HTTP/1.1: Typically utilizes multiple connections for concurrent tasks, resulting in slower performance.
+HTTP/2: Streamlines communication by using a single TCP connection for multiple streams, maximizing efficiency, minimizing overhead, and enhancing short data transfer speeds.
+
+H)Encryption:
+HTTP/1.1: Supports both encrypted (HTTPS) and unencrypted (HTTP) traffic.
+HTTP/2: While the standard doesn't mandate encryption, in practice, almost all HTTP/2 traffic is over HTTPS due to browser support policies. This requirement has 
+contributed to a more secure web.
